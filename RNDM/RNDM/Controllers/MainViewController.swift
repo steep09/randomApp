@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum ThoughtCategory: String {
     case serious = "serious"
@@ -21,7 +22,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    var thoughtList = [Thought]()
+    private var thoughtList = [Thought]()
+    private var thoughtsCollectionRef: CollectionReference!
 
     override func viewDidLoad() {
         
@@ -31,6 +33,33 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
+        
+        thoughtsCollectionRef = Firestore.firestore().collection(thought_ref)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        thoughtsCollectionRef.getDocuments { (snapshot, error) in
+            if let err = error {
+                print("Error fetching docs: \(err)")
+            } else {
+                for document in (snapshot?.documents)! {
+                    let data = document.data()
+                    let username = data[userName] as? String ?? "Anonymous"
+                    let timestamp = data[timeStamp] as? Date ?? Date()
+                    let thoughttxt = data[thoughtTxt] as? String ?? ""
+                    let numlikes = data[numOfLikes] as? Int ?? 0
+                    let numcomments = data[numOfComments] as? Int ?? 0
+                    let documentid = document.documentID
+                    
+                    let newThought = Thought(userName: username, numofComments: numcomments, numofLikes: numlikes, thoughtTxt: thoughttxt, timeStamp: timestamp, documentId: documentid)
+                    self.thoughtList.append(newThought)
+                }
+                self.tableView.reloadData()
+            }
+        }
         
     }
     
@@ -46,7 +75,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ThoughtListCell", for: indexPath) as? ThoughtListCell else { return UITableViewCell() }
         
-        var thought = thoughtList[indexPath.row]
+        let thought = thoughtList[indexPath.row]
         
         cell.configureCell(thought: thought)
         

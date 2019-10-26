@@ -17,8 +17,11 @@ class ThoughtListCell: UITableViewCell {
     
     
     func configureCell(thought: Thought) {
-//        
-//        self.userNameLbl.text = thought.userName
+        
+        self.userNameLbl.text = thought.userName
 //        self.timeStampLbl.text = thought.timeStamp
+        self.thoughtTxtLbl.text = thought.thoughtTxt
+        self.numOfLikesLbl.text = String(thought.numofLikes)
+        
     }
 }
