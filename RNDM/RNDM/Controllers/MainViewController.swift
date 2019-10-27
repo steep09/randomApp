@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
     
     private var thoughtList = [Thought]()
     private var thoughtsCollectionRef: CollectionReference!
+    private var thoughtsListener: ListenerRegistration!
+    private var selectedCategory = "funny"
 
     override func viewDidLoad() {
         
@@ -41,28 +43,14 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        thoughtsCollectionRef.getDocuments { (snapshot, error) in
-            if let err = error {
-                print("Error fetching docs: \(err)")
-            } else {
-                for document in (snapshot?.documents)! {
-                    let data = document.data()
-                    let username = data[userName] as? String ?? "Anonymous"
-                    let timestamp = data[timeStamp] as? Date ?? Date()
-                    let thoughttxt = data[thoughtTxt] as? String ?? ""
-                    let numlikes = data[numOfLikes] as? Int ?? 0
-                    let numcomments = data[numOfComments] as? Int ?? 0
-                    let documentid = document.documentID
-                    
-                    let newThought = Thought(userName: username, numofComments: numcomments, numofLikes: numlikes, thoughtTxt: thoughttxt, timeStamp: timestamp, documentId: documentid)
-                    self.thoughtList.append(newThought)
-                }
-                self.tableView.reloadData()
-            }
-        }
-        
+        setListener()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        thoughtsListener.remove()
+    }
     
 }
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -80,6 +68,59 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell(thought: thought)
         
         return cell
+    }
+    
+}
+extension MainViewController {
+    
+    func setListener() {
+        
+        thoughtsListener = thoughtsCollectionRef
+            .whereField(category, isEqualTo: selectedCategory).order(by: timeStamp, descending: true)
+            .addSnapshotListener { (snapshot, error) in
+        if let err = error {
+            print("Error fetching docs: \(err)")
+        } else {
+            self.thoughtList.removeAll()
+            for document in (snapshot?.documents)! {
+                let data = document.data()
+                let username = data[userName] as? String ?? "Anonymous"
+                let timestamp = data[timeStamp] as? Timestamp ?? Timestamp()
+                let thoughttxt = data[thoughtTxt] as? String ?? ""
+                let numlikes = data[numOfLikes] as? Int ?? 0
+                let numcomments = data[numOfComments] as? Int ?? 0
+                let documentid = document.documentID
+                
+                let newThought = Thought(userName: username, numofComments: numcomments, numofLikes: numlikes, thoughtTxt: thoughttxt, timeStamp: timestamp, documentId: documentid)
+                self.thoughtList.append(newThought)
+                }
+            self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
+    @IBAction func categoryChanged(_ sender: Any) {
+        
+        switch categorySegment.selectedSegmentIndex {
+        case 0:
+            self.selectedCategory = "funny"
+            print("\(self.selectedCategory)")
+        case 1:
+            self.selectedCategory = "serious"
+            print("\(self.selectedCategory)")
+        case 2:
+            self.selectedCategory = "crazy"
+            print("\(self.selectedCategory)")
+        case 3:
+            selectedCategory = "popular"
+            print("\(self.selectedCategory)")
+        default:
+           break
+        }
+        
+        thoughtsListener.remove()
+        setListener()
     }
     
 }

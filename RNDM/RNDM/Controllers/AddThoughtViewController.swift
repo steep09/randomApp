@@ -58,7 +58,7 @@ class AddThoughtViewController: UIViewController {
             "numOfLikes": 0,
             "thoughtTxt": self.ThoughtDescription.text!,
             "timeStamp": FieldValue.serverTimestamp(),
-            "userName": self.userNameTextField.text!
+            "userName": self.userNameTextField.text ?? "Anonymous"
         ]) { (error) in
             if error != nil {
                 print("ERROR ADDING DOCUMENT!")

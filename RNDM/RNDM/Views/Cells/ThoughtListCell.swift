@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ThoughtListCell: UITableViewCell {
 
@@ -22,6 +23,14 @@ class ThoughtListCell: UITableViewCell {
 //        self.timeStampLbl.text = thought.timeStamp
         self.thoughtTxtLbl.text = thought.thoughtTxt
         self.numOfLikesLbl.text = String(thought.numofLikes)
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(thought.timeStamp.seconds))
+        print("\(thought.timeStamp.seconds) \(date)")
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, hh:mm"
+        let timestamp = formatter.string(from: date)
+        self.timeStampLbl.text = timestamp
         
     }
 }

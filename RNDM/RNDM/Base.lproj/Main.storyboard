@@ -29,6 +29,8 @@
                                 <color key="tintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="selectedSegmentTintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <action selector="categoryChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="iLx-Ms-5G3"/>
+                                    <action selector="categoryChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rYb-7j-zdH"/>
                                     <action selector="categoryChanged:" destination="7Aa-uI-ZdR" eventType="valueChanged" id="vAg-ku-dKg"/>
                                 </connections>
                             </segmentedControl>
@@ -149,7 +151,6 @@
                                     <segment title="Funny"/>
                                     <segment title="Serious"/>
                                     <segment title="Crazy"/>
-                                    <segment title="Popular"/>
                                 </segments>
                                 <color key="tintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="selectedSegmentTintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>

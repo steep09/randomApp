@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Thought {
     
@@ -14,10 +15,10 @@ class Thought {
     private(set) var numofComments: Int!
     private(set) var numofLikes: Int!
     private(set) var thoughtTxt: String!
-    private(set) var timeStamp: Date!
+    private(set) var timeStamp: Timestamp!
     private(set) var documentId: String!
     
-    init(userName: String, numofComments: Int, numofLikes: Int, thoughtTxt: String,timeStamp: Date, documentId:String) {
+    init(userName: String, numofComments: Int, numofLikes: Int, thoughtTxt: String, timeStamp: Timestamp, documentId:String) {
         
         self.userName = userName
         self.numofComments = numofComments
