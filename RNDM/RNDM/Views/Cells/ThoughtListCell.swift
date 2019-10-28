@@ -29,7 +29,7 @@ class ThoughtListCell: UITableViewCell {
     }
     
     @objc func likeBtnTapped() {
-        print("Tapped")
+        print("Like Button Tapped")
         print("\(thought.numofLikes) -- \(thought.userName) -- \(thought.documentId)")
         Firestore.firestore().collection("Thoughts").document(thought.documentId).updateData(["numOfLikes": thought.numofLikes + 1])
     }
