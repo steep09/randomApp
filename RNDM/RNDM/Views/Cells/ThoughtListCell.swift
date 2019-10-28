@@ -15,9 +15,27 @@ class ThoughtListCell: UITableViewCell {
     @IBOutlet weak var timeStampLbl: UILabel!
     @IBOutlet weak var thoughtTxtLbl: UILabel!
     @IBOutlet weak var numOfLikesLbl: UILabel!
+    @IBOutlet weak var likeImg: UIImageView!
     
+    private var thought: Thought!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likeBtnTapped))
+        likeImg.addGestureRecognizer(tap)
+        likeImg.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func likeBtnTapped() {
+        print("Tapped")
+        print("\(thought.numofLikes) -- \(thought.userName) -- \(thought.documentId)")
+        Firestore.firestore().collection("Thoughts").document(thought.documentId).updateData(["numOfLikes": thought.numofLikes + 1])
+    }
     
     func configureCell(thought: Thought) {
+        self.thought = thought
         
         self.userNameLbl.text = thought.userName
 //        self.timeStampLbl.text = thought.timeStamp

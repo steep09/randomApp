@@ -97,6 +97,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likeImg" destination="JI5-JK-Mj1" id="nFp-we-y5R"/>
                                             <outlet property="numOfLikesLbl" destination="gGe-t1-NT3" id="u1q-bw-Juh"/>
                                             <outlet property="thoughtTxtLbl" destination="hPQ-HG-fwt" id="1rH-0x-L5B"/>
                                             <outlet property="timeStampLbl" destination="0Z5-wR-Ier" id="BDo-DM-90n"/>

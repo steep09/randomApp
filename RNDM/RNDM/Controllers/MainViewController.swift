@@ -75,29 +75,31 @@ extension MainViewController {
     
     func setListener() {
         
-        thoughtsListener = thoughtsCollectionRef
-            .whereField(category, isEqualTo: selectedCategory).order(by: timeStamp, descending: true)
-            .addSnapshotListener { (snapshot, error) in
-        if let err = error {
-            print("Error fetching docs: \(err)")
-        } else {
-            self.thoughtList.removeAll()
-            for document in (snapshot?.documents)! {
-                let data = document.data()
-                let username = data[userName] as? String ?? "Anonymous"
-                let timestamp = data[timeStamp] as? Timestamp ?? Timestamp()
-                let thoughttxt = data[thoughtTxt] as? String ?? ""
-                let numlikes = data[numOfLikes] as? Int ?? 0
-                let numcomments = data[numOfComments] as? Int ?? 0
-                let documentid = document.documentID
-                
-                let newThought = Thought(userName: username, numofComments: numcomments, numofLikes: numlikes, thoughtTxt: thoughttxt, timeStamp: timestamp, documentId: documentid)
-                self.thoughtList.append(newThought)
+        if selectedCategory == "popular" {
+            thoughtsListener = thoughtsCollectionRef
+                .order(by: numOfLikes, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+            if let err = error {
+                print("Error fetching docs: \(err)")
+            } else {
+                self.thoughtList.removeAll()
+                self.thoughtList = Thought.parseData(snapShot: snapshot)
+                self.tableView.reloadData()
                 }
-            self.tableView.reloadData()
+            }
+        } else {
+            thoughtsListener = thoughtsCollectionRef
+                .whereField(category, isEqualTo: selectedCategory).order(by: timeStamp, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+            if let err = error {
+                print("Error fetching docs: \(err)")
+            } else {
+                self.thoughtList.removeAll()
+                self.thoughtList = Thought.parseData(snapShot: snapshot)
+                self.tableView.reloadData()
+                }
             }
         }
-        
     }
     
     @IBAction func categoryChanged(_ sender: Any) {

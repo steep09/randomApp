@@ -28,4 +28,25 @@ class Thought {
         self.documentId = documentId
     }
     
+    class func parseData(snapShot: QuerySnapshot?) -> [Thought] {
+        var thought = [Thought]()
+        
+        guard let snap = snapShot else { return thought }
+        
+        for document in snap.documents {
+            let data = document.data()
+            let username = data["userName"] as? String ?? "Anonymous"
+            let timestamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+            let thoughttxt = data["thoughtTxt"] as? String ?? ""
+            let numlikes = data["numOfLikes"] as? Int ?? 0
+            let numcomments = data["numOfComments"] as? Int ?? 0
+            let documentid = document.documentID
+        
+            let newThought = Thought(userName: username, numofComments: numcomments, numofLikes: numlikes, thoughtTxt: thoughttxt, timeStamp: timestamp, documentId: documentid)
+            thought.append(newThought)
+        }
+        
+        return thought
+    }
+    
 }
