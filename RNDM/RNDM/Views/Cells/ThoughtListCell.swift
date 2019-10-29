@@ -15,7 +15,9 @@ class ThoughtListCell: UITableViewCell {
     @IBOutlet weak var timeStampLbl: UILabel!
     @IBOutlet weak var thoughtTxtLbl: UILabel!
     @IBOutlet weak var numOfLikesLbl: UILabel!
+    @IBOutlet weak var numOfCommentsLbl: UILabel!
     @IBOutlet weak var likeImg: UIImageView!
+    @IBOutlet weak var commentImg: UIImageView!
     
     private var thought: Thought!
     
@@ -34,13 +36,16 @@ class ThoughtListCell: UITableViewCell {
         Firestore.firestore().collection("Thoughts").document(thought.documentId).updateData(["numOfLikes": thought.numofLikes + 1])
     }
     
+}
+extension ThoughtListCell {
+    
     func configureCell(thought: Thought) {
         self.thought = thought
         
         self.userNameLbl.text = thought.userName
-//        self.timeStampLbl.text = thought.timeStamp
         self.thoughtTxtLbl.text = thought.thoughtTxt
         self.numOfLikesLbl.text = String(thought.numofLikes)
+        self.numOfCommentsLbl.text = String(thought.numofComments)
         
         let date = Date(timeIntervalSince1970: TimeInterval(thought.timeStamp.seconds))
         print("\(thought.timeStamp.seconds) \(date)")
@@ -51,4 +56,5 @@ class ThoughtListCell: UITableViewCell {
         self.timeStampLbl.text = timestamp
         
     }
+    
 }

@@ -86,6 +86,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toComments", sender: thoughtList[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toComments" {
+            if let destinationVC = segue.destination as? CommentsViewController {
+                if let thought = sender as? Thought {
+                    destinationVC.thought = thought
+                }
+            }
+        }
+    }
+    
 }
 extension MainViewController {
     
