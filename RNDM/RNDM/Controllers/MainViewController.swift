@@ -16,6 +16,8 @@ enum ThoughtCategory: String {
     case popular = "popular"
 }
 
+
+
 class MainViewController: UIViewController {
     
     @IBOutlet private weak var categorySegment: UISegmentedControl!
@@ -26,6 +28,8 @@ class MainViewController: UIViewController {
     private var thoughtsCollectionRef: CollectionReference!
     private var thoughtsListener: ListenerRegistration!
     private var selectedCategory = "funny"
+    
+    private var handle: AuthStateDidChangeListenerHandle?
 
     override func viewDidLoad() {
         
@@ -41,15 +45,27 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        setListener()
+        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            print("USER: \(user?.email)")
+            if user == nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.present(loginVC, animated: false, completion: nil)
+            } else {
+                super.viewWillAppear(animated)
+                self.setListener()
+            }
+        })
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        thoughtsListener.remove()
+        if thoughtsListener != nil {
+            thoughtsListener.remove()
+        }
     }
     
 }
@@ -121,8 +137,25 @@ extension MainViewController {
            break
         }
         
-        thoughtsListener.remove()
+        if thoughtsListener != nil {
+            thoughtsListener.remove()
+        }
         setListener()
+    }
+    
+    @IBAction func logOutBtnWasPressed(_ sender: Any) {
+        
+        do {
+            try Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            loginVC.modalPresentationStyle = .fullScreen
+            self.present(loginVC, animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
     }
     
 }

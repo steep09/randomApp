@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -23,9 +24,24 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginBtnWasPressed(_ sender: Any) {
+        
+        guard let email = emailAdressTxtField.text,
+            let password = passwordTxtField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                debugPrint("ERROR SIGNING IN: \(error)")
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func createUserBtnWasPressed(_ sender: Any) {
+        let createUserVC = storyboard?.instantiateViewController(withIdentifier: "CreateUserViewController") as! CreateUserViewController
+        
+        createUserVC.modalPresentationStyle = .fullScreen
+        self.present(createUserVC, animated: true, completion: nil)
     }
     
 }
