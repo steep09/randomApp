@@ -35,9 +35,8 @@ class CreateUserViewController: UIViewController {
                     else { return }
                     Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                         if error != nil {
-                            print("ERROR CREATING USER: \(error ?? nil)")
+                            debugPrint("ERROR CREATING USER: \(String(describing: error))")
                         } else {
-                            print("USER: \(result)")
                             
                             guard let userId = result?.user.uid else { return }
                             Firestore.firestore().collection("Users")

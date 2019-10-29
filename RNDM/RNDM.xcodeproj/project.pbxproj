@@ -19,6 +19,7 @@
 		A7602DAB23618CB70078A7D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7602DAA23618CB70078A7D9 /* Constants.swift */; };
 		A76724FC2367E38F00483918 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76724FB2367E38F00483918 /* CommentsViewController.swift */; };
 		A76724FE2368136C00483918 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76724FD2368136C00483918 /* CommentsCell.swift */; };
+		A7672500236815B300483918 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76724FF236815B300483918 /* Comment.swift */; };
 		A7806C012364908B00E49B9F /* ThoughtListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7806C002364908B00E49B9F /* ThoughtListCell.swift */; };
 		A7806C032364914000E49B9F /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7806C022364914000E49B9F /* Thought.swift */; };
 		A78D2EB92366C01500760BAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78D2EB82366C01500760BAB /* LoginViewController.swift */; };
@@ -41,6 +42,7 @@
 		A7602DAA23618CB70078A7D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A76724FB2367E38F00483918 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		A76724FD2368136C00483918 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		A76724FF236815B300483918 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		A7806C002364908B00E49B9F /* ThoughtListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtListCell.swift; sourceTree = "<group>"; };
 		A7806C022364914000E49B9F /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		A78D2EB82366C01500760BAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				A7806C022364914000E49B9F /* Thought.swift */,
+				A76724FF236815B300483918 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				A78D2EB92366C01500760BAB /* LoginViewController.swift in Sources */,
 				A78D2EBB2366C2A700760BAB /* CreateUserViewController.swift in Sources */,
 				A76724FE2368136C00483918 /* CommentsCell.swift in Sources */,
+				A7672500236815B300483918 /* Comment.swift in Sources */,
 				A7602D912361563C0078A7D9 /* SceneDelegate.swift in Sources */,
 				A7806C032364914000E49B9F /* Thought.swift in Sources */,
 				A76724FC2367E38F00483918 /* CommentsViewController.swift in Sources */,

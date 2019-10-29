@@ -47,7 +47,9 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            print("USER: \(user?.email)")
+            if let currentUser = user?.email {
+                print("CURRENT USER: \(currentUser)")
+            }
             if user == nil {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 
@@ -107,7 +109,7 @@ extension MainViewController {
         
         if selectedCategory == "popular" {
             thoughtsListener = thoughtsCollectionRef
-                .order(by: numOfLikes, descending: true)
+                .order(by: NUMOFLIKES, descending: true)
                 .addSnapshotListener { (snapshot, error) in
             if let err = error {
                 print("Error fetching docs: \(err)")
@@ -119,7 +121,7 @@ extension MainViewController {
             }
         } else {
             thoughtsListener = thoughtsCollectionRef
-                .whereField(category, isEqualTo: selectedCategory).order(by: timeStamp, descending: true)
+                .whereField(CATEGORY, isEqualTo: selectedCategory).order(by: TIMESTAMP, descending: true)
                 .addSnapshotListener { (snapshot, error) in
             if let err = error {
                 print("Error fetching docs: \(err)")

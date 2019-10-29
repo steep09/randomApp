@@ -14,5 +14,15 @@ class CommentsCell: UITableViewCell {
     @IBOutlet weak var timeStampLbl: UILabel!
     @IBOutlet weak var commentBodyLbl: UILabel!
     
-    
+    func configureCell(comment: Comment) {
+        self.userNameLbl.text = comment.userName
+        self.commentBodyLbl.text = comment.commentsTxt
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(comment.timeStamp.seconds))
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, hh:mm"
+        let timestamp = formatter.string(from: date)
+        self.timeStampLbl.text = timestamp
+    }
 }
