@@ -38,14 +38,22 @@ class CreateUserViewController: UIViewController {
                             debugPrint("ERROR CREATING USER: \(String(describing: error))")
                         } else {
                             
+                            let changeRequest = result?.user.createProfileChangeRequest()
+                            changeRequest?.displayName = username
+                            changeRequest?.commitChanges(completion: { (error) in
+                                if let error = error {
+                                    debugPrint(error.localizedDescription)
+                                }
+                            })
+                            
                             guard let userId = result?.user.uid else { return }
                             Firestore.firestore().collection("Users")
                                 .document(userId).setData([
                                     "userName": username,
                                     "dateCreated": FieldValue.serverTimestamp()
                                 ]) { (error) in
-                                    if error != nil {
-                                        debugPrint("ERROR CREATING FIRESTORE DATA: \(error)")
+                                    if let error = error {
+                                        debugPrint("ERROR CREATING FIRESTORE DATA: \(error.localizedDescription)")
                                     } else {
                                         self.emailAddressTxtField.text = ""
                                         self.passwordTxtField.text = ""

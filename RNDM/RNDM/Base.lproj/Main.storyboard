@@ -243,7 +243,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-d9-taj">
-                                                    <rect key="frame" x="20" y="11" width="73" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="73" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -372,16 +372,12 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0eo-of-UID">
                                 <rect key="frame" x="0.0" y="88" width="414" height="711"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="DmE-zf-iW1"/>
-                                    <constraint firstAttribute="height" constant="711" id="l8d-IU-Y2w"/>
-                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsCell" rowHeight="107" id="j6U-vl-b09" customClass="CommentsCell" customModule="RNDM" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="107"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsCell" rowHeight="100" id="j6U-vl-b09" customClass="CommentsCell" customModule="RNDM" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j6U-vl-b09" id="rTh-Sf-RRO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anonymous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li2-dB-59o">
@@ -400,7 +396,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Comments here..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uk-H0-GHF">
-                                                    <rect key="frame" x="20" y="38" width="374" height="48"/>
+                                                    <rect key="frame" x="20" y="38" width="374" height="41"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -426,8 +422,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TI0-2Q-idU">
+                                <rect key="frame" x="20" y="807" width="344" height="34"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIg-Pg-tIm">
-                                <rect key="frame" x="380" y="814.5" width="20" height="19"/>
+                                <rect key="frame" x="374" y="814.5" width="20" height="19"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -438,14 +439,6 @@
                                     <action selector="addCommentBtnWasPressed:" destination="L9K-M5-nTE" eventType="touchUpInside" id="PZw-mE-mmk"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TI0-2Q-idU">
-                                <rect key="frame" x="20" y="807" width="350" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="Ml1-mR-0vA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -453,6 +446,8 @@
                             <constraint firstItem="0eo-of-UID" firstAttribute="leading" secondItem="ifg-Eu-vgJ" secondAttribute="leading" id="9ZM-Yz-zbB"/>
                             <constraint firstItem="hIg-Pg-tIm" firstAttribute="leading" secondItem="TI0-2Q-idU" secondAttribute="trailing" constant="10" id="JKE-x3-xbC"/>
                             <constraint firstItem="TI0-2Q-idU" firstAttribute="leading" secondItem="ifg-Eu-vgJ" secondAttribute="leading" constant="20" id="KDs-Lk-5pD"/>
+                            <constraint firstItem="ifg-Eu-vgJ" firstAttribute="trailing" secondItem="hIg-Pg-tIm" secondAttribute="trailing" constant="20" id="n3V-Y7-7GW"/>
+                            <constraint firstItem="ifg-Eu-vgJ" firstAttribute="bottom" secondItem="TI0-2Q-idU" secondAttribute="bottom" constant="21" id="sMj-TW-C7u"/>
                             <constraint firstItem="0eo-of-UID" firstAttribute="top" secondItem="ifg-Eu-vgJ" secondAttribute="top" id="tU1-F8-dAb"/>
                             <constraint firstItem="0eo-of-UID" firstAttribute="trailing" secondItem="ifg-Eu-vgJ" secondAttribute="trailing" id="v7P-Vl-DyV"/>
                             <constraint firstItem="TI0-2Q-idU" firstAttribute="top" secondItem="0eo-of-UID" secondAttribute="bottom" constant="8" id="yAO-6n-k3V"/>

@@ -20,4 +20,22 @@ class Comment {
         self.timeStamp = timeStamp
         self.commentsTxt = commentsTxt
     }
+    
+    class func parseData(snapShot: QuerySnapshot?) -> [Comment] {
+        var comments = [Comment]()
+        
+        guard let snap = snapShot else { return comments }
+        
+        for document in snap.documents {
+            let data = document.data()
+            let username = data["userName"] as? String ?? "Anonymous"
+            let timestamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+            let commentTxt = data["commentTxt"] as? String ?? ""
+        
+            let newComment = Comment(userName: username, timeStamp: timestamp, commentsTxt: commentTxt)
+            comments.append(newComment)
+        }
+        
+        return comments
+    }
 }

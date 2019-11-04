@@ -10,9 +10,14 @@ import Foundation
 
 let thought_ref = "Thoughts"
 
+
 let CATEGORY = "category"
 let NUMOFCOMMENTS = "numOfComments"
 let NUMOFLIKES = "numOfLikes"
 let THOUGHTTXT = "thoughtTxt"
 let TIMESTAMP = "timeStamp"
 let USERNAME = "userName"
+
+let comments_ref = "comments"
+
+let COMMENTTXT = "commentTxt"

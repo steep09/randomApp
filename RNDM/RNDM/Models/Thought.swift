@@ -29,9 +29,9 @@ class Thought {
     }
     
     class func parseData(snapShot: QuerySnapshot?) -> [Thought] {
-        var thought = [Thought]()
+        var thoughts = [Thought]()
         
-        guard let snap = snapShot else { return thought }
+        guard let snap = snapShot else { return thoughts }
         
         for document in snap.documents {
             let data = document.data()
@@ -43,10 +43,10 @@ class Thought {
             let documentid = document.documentID
         
             let newThought = Thought(userName: username, numofComments: numcomments, numofLikes: numlikes, thoughtTxt: thoughttxt, timeStamp: timestamp, documentId: documentid)
-            thought.append(newThought)
+            thoughts.append(newThought)
         }
         
-        return thought
+        return thoughts
     }
     
 }

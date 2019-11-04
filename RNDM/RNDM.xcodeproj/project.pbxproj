@@ -24,6 +24,7 @@
 		A7806C032364914000E49B9F /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7806C022364914000E49B9F /* Thought.swift */; };
 		A78D2EB92366C01500760BAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78D2EB82366C01500760BAB /* LoginViewController.swift */; };
 		A78D2EBB2366C2A700760BAB /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78D2EBA2366C2A700760BAB /* CreateUserViewController.swift */; };
+		A79900242370133C00ECC99F /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79900232370133C00ECC99F /* KeyboardBoundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A7806C022364914000E49B9F /* Thought.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
 		A78D2EB82366C01500760BAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A78D2EBA2366C2A700760BAB /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		A79900232370133C00ECC99F /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		AFBDC8D258CA3085D23E676C /* Pods-RNDM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDM.debug.xcconfig"; path = "Target Support Files/Pods-RNDM/Pods-RNDM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 		A7602D8D2361563C0078A7D9 /* RNDM */ = {
 			isa = PBXGroup;
 			children = (
+				A79900222370132300ECC99F /* Utilities */,
 				A7602DA923618CA30078A7D9 /* Constants */,
 				A7602DA623616E4A0078A7D9 /* Models */,
 				A7602DA523616E450078A7D9 /* Views */,
@@ -151,6 +154,14 @@
 				A76724FD2368136C00483918 /* CommentsCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A79900222370132300ECC99F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A79900232370133C00ECC99F /* KeyboardBoundView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		A873F9970C7EE2FC4914F853 /* Frameworks */ = {
@@ -281,6 +292,7 @@
 				A7602DA823617AF20078A7D9 /* AddThoughtViewController.swift in Sources */,
 				A7602D932361563C0078A7D9 /* MainViewController.swift in Sources */,
 				A7602D8F2361563C0078A7D9 /* AppDelegate.swift in Sources */,
+				A79900242370133C00ECC99F /* KeyboardBoundView.swift in Sources */,
 				A78D2EB92366C01500760BAB /* LoginViewController.swift in Sources */,
 				A78D2EBB2366C2A700760BAB /* CreateUserViewController.swift in Sources */,
 				A76724FE2368136C00483918 /* CommentsCell.swift in Sources */,
