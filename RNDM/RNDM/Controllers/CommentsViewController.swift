@@ -85,7 +85,8 @@ class CommentsViewController: UIViewController {
             transaction.setData([
                 "commentTxt": commentTxt,
                 TIMESTAMP: FieldValue.serverTimestamp(),
-                USERNAME: self.username ?? "ANONYMOUS"
+                USERNAME: self.username ?? "ANONYMOUS",
+                "userId": Auth.auth().currentUser?.uid ?? ""
             ], forDocument: newCommentRef)
             
             return nil

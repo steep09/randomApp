@@ -13,6 +13,7 @@ class CommentsCell: UITableViewCell {
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var timeStampLbl: UILabel!
     @IBOutlet weak var commentBodyLbl: UILabel!
+    @IBOutlet weak var optionsMenu: UIImageView!
     
     func configureCell(comment: Comment) {
         self.userNameLbl.text = comment.userName

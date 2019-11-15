@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EKu-BY-Zge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EKu-BY-Zge">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -296,11 +296,16 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis" translatesAutoresizingMaskIntoConstraints="NO" id="sH4-Ps-6ND">
+                                                    <rect key="frame" x="364" y="11" width="30" height="30"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="sH4-Ps-6ND" firstAttribute="top" secondItem="dhL-i6-1WR" secondAttribute="topMargin" id="0D8-GI-JwP"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hPQ-HG-fwt" secondAttribute="trailing" id="1Z8-Bu-Stu"/>
                                                 <constraint firstItem="2Fk-QG-kIU" firstAttribute="bottom" secondItem="dhL-i6-1WR" secondAttribute="bottomMargin" id="64g-om-cGg"/>
                                                 <constraint firstItem="hPQ-HG-fwt" firstAttribute="top" secondItem="6Db-d9-taj" secondAttribute="bottom" constant="8" id="8w6-4w-fuX"/>
+                                                <constraint firstItem="sH4-Ps-6ND" firstAttribute="trailing" secondItem="dhL-i6-1WR" secondAttribute="trailingMargin" id="Bie-Az-gl3"/>
                                                 <constraint firstItem="4uH-VF-szK" firstAttribute="top" secondItem="hPQ-HG-fwt" secondAttribute="bottom" constant="7" id="Fd3-5d-dpd"/>
                                                 <constraint firstItem="4uH-VF-szK" firstAttribute="bottom" secondItem="dhL-i6-1WR" secondAttribute="bottomMargin" id="GTY-gm-eOv"/>
                                                 <constraint firstItem="6Db-d9-taj" firstAttribute="top" secondItem="dhL-i6-1WR" secondAttribute="topMargin" id="LsN-3H-dPf"/>
@@ -319,6 +324,7 @@
                                             <outlet property="likeImg" destination="JI5-JK-Mj1" id="nFp-we-y5R"/>
                                             <outlet property="numOfCommentsLbl" destination="4kO-0d-K8x" id="P8M-xA-7aO"/>
                                             <outlet property="numOfLikesLbl" destination="gGe-t1-NT3" id="u1q-bw-Juh"/>
+                                            <outlet property="optionsMenu" destination="sH4-Ps-6ND" id="heS-m9-Wr2"/>
                                             <outlet property="thoughtTxtLbl" destination="hPQ-HG-fwt" id="1rH-0x-L5B"/>
                                             <outlet property="timeStampLbl" destination="0Z5-wR-Ier" id="BDo-DM-90n"/>
                                             <outlet property="userNameLbl" destination="6Db-d9-taj" id="FU7-2Q-phd"/>
@@ -347,7 +353,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" id="2i6-e4-m4t">
                             <connections>
-                                <segue destination="7Aa-uI-ZdR" kind="show" identifier="toThoughts" id="91p-qK-l8T"/>
+                                <segue destination="7Aa-uI-ZdR" kind="show" id="ZHT-eU-s5P"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -401,12 +407,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis" translatesAutoresizingMaskIntoConstraints="NO" id="NVB-4L-phA">
+                                                    <rect key="frame" x="364" y="11" width="30" height="30"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="NVB-4L-phA" firstAttribute="trailing" secondItem="rTh-Sf-RRO" secondAttribute="trailingMargin" id="11j-uK-mxx"/>
                                                 <constraint firstItem="6uk-H0-GHF" firstAttribute="top" secondItem="zjT-jj-7c6" secondAttribute="bottom" constant="11" id="HMh-aA-YVf"/>
                                                 <constraint firstItem="zjT-jj-7c6" firstAttribute="leading" secondItem="li2-dB-59o" secondAttribute="trailing" constant="9" id="P1J-He-Qpa"/>
                                                 <constraint firstItem="6uk-H0-GHF" firstAttribute="top" secondItem="li2-dB-59o" secondAttribute="bottom" constant="10" id="PVV-eB-K2o"/>
                                                 <constraint firstItem="6uk-H0-GHF" firstAttribute="leading" secondItem="rTh-Sf-RRO" secondAttribute="leadingMargin" id="Piy-RI-18J"/>
+                                                <constraint firstItem="NVB-4L-phA" firstAttribute="top" secondItem="rTh-Sf-RRO" secondAttribute="topMargin" id="eze-P1-5Kk"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6uk-H0-GHF" secondAttribute="trailing" id="gZn-4Z-ibq"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="6uk-H0-GHF" secondAttribute="bottom" constant="10" id="k7p-81-79b"/>
                                                 <constraint firstItem="li2-dB-59o" firstAttribute="leading" secondItem="rTh-Sf-RRO" secondAttribute="leadingMargin" id="ouU-SB-PQi"/>
@@ -416,6 +427,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentBodyLbl" destination="6uk-H0-GHF" id="mMD-kD-dXR"/>
+                                            <outlet property="optionsMenu" destination="NVB-4L-phA" id="Hzz-nJ-bMU"/>
                                             <outlet property="timeStampLbl" destination="zjT-jj-7c6" id="cfo-Ai-sAG"/>
                                             <outlet property="userNameLbl" destination="li2-dB-59o" id="4fa-sK-ycL"/>
                                         </connections>
@@ -575,6 +587,7 @@
     <resources>
         <image name="addThoughtIcon" width="21" height="24"/>
         <image name="commentIcon" width="26" height="22"/>
+        <image name="ellipsis" width="30" height="30"/>
         <image name="plus.circle" catalog="system" width="64" height="60"/>
         <image name="power" catalog="system" width="64" height="62"/>
         <image name="starIconFilled" width="20" height="19"/>
