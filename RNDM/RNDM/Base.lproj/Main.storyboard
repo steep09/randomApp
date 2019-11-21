@@ -407,7 +407,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis" translatesAutoresizingMaskIntoConstraints="NO" id="NVB-4L-phA">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis_dark" translatesAutoresizingMaskIntoConstraints="NO" id="NVB-4L-phA">
                                                     <rect key="frame" x="364" y="11" width="30" height="30"/>
                                                 </imageView>
                                             </subviews>
@@ -588,6 +588,7 @@
         <image name="addThoughtIcon" width="21" height="24"/>
         <image name="commentIcon" width="26" height="22"/>
         <image name="ellipsis" width="30" height="30"/>
+        <image name="ellipsis_dark" width="30" height="30"/>
         <image name="plus.circle" catalog="system" width="64" height="60"/>
         <image name="power" catalog="system" width="64" height="62"/>
         <image name="starIconFilled" width="20" height="19"/>

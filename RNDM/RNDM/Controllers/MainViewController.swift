@@ -18,7 +18,7 @@ enum ThoughtCategory: String {
 
 
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, ThoughtDelegate {
     
     @IBOutlet private weak var categorySegment: UISegmentedControl!
     
@@ -70,6 +70,11 @@ class MainViewController: UIViewController {
         }
     }
     
+    func thoughtOptionsTapped(thought: Thought) {
+        //this is where we create the alert to handle the deletion
+        print(thought.userName ?? "")
+    }
+    
 }
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -83,7 +88,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let thought = thoughtList[indexPath.row]
         
-        cell.configureCell(thought: thought)
+        cell.configureCell(thought: thought, delegate: self)
         
         return cell
     }

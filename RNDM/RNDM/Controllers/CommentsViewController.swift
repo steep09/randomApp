@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CommentsViewController: UIViewController {
+class CommentsViewController: UIViewController, CommentDelegate {
     
     @IBOutlet var keyboardView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -59,6 +59,10 @@ class CommentsViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         commentsListener.remove()
+    }
+    
+    func commentOptionsTapped(comment: Comment) {
+        print(comment.userName!)
     }
 
     @IBAction func addCommentBtnWasPressed(_ sender: Any) {
@@ -111,7 +115,7 @@ extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as? CommentsCell
             else { return UITableViewCell() }
         
-        cell.configureCell(comment: commentList[indexPath.row])
+        cell.configureCell(comment: commentList[indexPath.row], delegate: self)
         return cell
     }
     
