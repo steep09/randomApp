@@ -529,11 +529,64 @@
                         <outlet property="addCommentTxtField" destination="TI0-2Q-idU" id="qmw-qh-4hx"/>
                         <outlet property="keyboardView" destination="5MV-v7-CrR" id="E8k-Ex-ow4"/>
                         <outlet property="tableView" destination="0eo-of-UID" id="OP8-r0-kWH"/>
+                        <segue destination="fdw-RW-ejn" kind="show" id="zuK-SH-PUb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLT-Tq-vvf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1669.5652173913045" y="450"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hNV-nZ-Ndm">
+            <objects>
+                <viewController id="fdw-RW-ejn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LIO-8G-xKK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6gV-ih-V9V">
+                                <rect key="frame" x="20" y="110" width="374" height="150"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="aEr-7h-H0q"/>
+                                    <constraint firstAttribute="width" constant="374" id="gu0-J4-rYP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="sRy-ke-kLi"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdR-Zr-nYr">
+                                <rect key="frame" x="147" y="285" width="120" height="45"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="c6y-KP-dIG"/>
+                                    <constraint firstAttribute="height" constant="45" id="jy8-FX-bK3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="xKG-a8-qtU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="DONE"/>
+                                <connections>
+                                    <action selector="PostBtnWasPressed:" destination="7Aa-uI-ZdR" eventType="touchUpInside" id="0i5-CS-W3v"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6gV-ih-V9V" firstAttribute="top" secondItem="TS6-ix-jZI" secondAttribute="top" constant="22" id="Bob-IM-wnP"/>
+                            <constraint firstItem="TS6-ix-jZI" firstAttribute="trailing" secondItem="6gV-ih-V9V" secondAttribute="trailing" constant="20" id="CuI-gh-gNB"/>
+                            <constraint firstItem="HdR-Zr-nYr" firstAttribute="centerX" secondItem="LIO-8G-xKK" secondAttribute="centerX" id="Kqn-CS-Jph"/>
+                            <constraint firstItem="HdR-Zr-nYr" firstAttribute="top" secondItem="6gV-ih-V9V" secondAttribute="bottom" constant="25" id="Q9E-Jx-PEg"/>
+                            <constraint firstItem="6gV-ih-V9V" firstAttribute="leading" secondItem="TS6-ix-jZI" secondAttribute="leading" constant="20" id="YlX-LC-TYd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TS6-ix-jZI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XWT-Xd-AKH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p8V-Pg-Rcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2407" y="450"/>
         </scene>
         <!--Add Thought View Controller-->
         <scene sceneID="HD7-oE-pG2">

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1FD9D3C38420C28BA2A3F6C1 /* Pods_RNDM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A09003947FF613886C05EE /* Pods_RNDM.framework */; };
 		A75E68292388C263000DFFDF /* UIViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75E68282388C263000DFFDF /* UIViews.swift */; };
+		A75E682B2388C861000DFFDF /* EditCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75E682A2388C861000DFFDF /* EditCommentViewController.swift */; };
 		A7602D8F2361563C0078A7D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7602D8E2361563C0078A7D9 /* AppDelegate.swift */; };
 		A7602D912361563C0078A7D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7602D902361563C0078A7D9 /* SceneDelegate.swift */; };
 		A7602D932361563C0078A7D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7602D922361563C0078A7D9 /* MainViewController.swift */; };
@@ -32,6 +33,7 @@
 		2FD84ECC3F255E1DB3113A81 /* Pods-RNDM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDM.release.xcconfig"; path = "Target Support Files/Pods-RNDM/Pods-RNDM.release.xcconfig"; sourceTree = "<group>"; };
 		43A09003947FF613886C05EE /* Pods_RNDM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNDM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75E68282388C263000DFFDF /* UIViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViews.swift; sourceTree = "<group>"; };
+		A75E682A2388C861000DFFDF /* EditCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommentViewController.swift; sourceTree = "<group>"; };
 		A7602D8B2361563C0078A7D9 /* RNDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7602D8E2361563C0078A7D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7602D902361563C0078A7D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				A78D2EB82366C01500760BAB /* LoginViewController.swift */,
 				A78D2EBA2366C2A700760BAB /* CreateUserViewController.swift */,
 				A76724FB2367E38F00483918 /* CommentsViewController.swift */,
+				A75E682A2388C861000DFFDF /* EditCommentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				A7806C032364914000E49B9F /* Thought.swift in Sources */,
 				A76724FC2367E38F00483918 /* CommentsViewController.swift in Sources */,
 				A7806C012364908B00E49B9F /* ThoughtListCell.swift in Sources */,
+				A75E682B2388C861000DFFDF /* EditCommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
