@@ -16,11 +16,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var createUserBtn: UIButton!
     
+    @IBOutlet weak var errorMessageLbl: UILabel!
+    @IBOutlet weak var errorMessageView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loginBtn.layer.cornerRadius = 10.0
         createUserBtn.layer.cornerRadius = 10.0
+        errorMessageView.layer.cornerRadius = 10.0
     }
     
     @IBAction func loginBtnWasPressed(_ sender: Any) {
@@ -31,6 +35,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 debugPrint("ERROR SIGNING IN: \(error)")
+                self.errorMessageView.showToastMessage(label: self.errorMessageLbl, message: "\(error.localizedDescription)")
             } else {
                 self.dismiss(animated: true, completion: nil)
             }

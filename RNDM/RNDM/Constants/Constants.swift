@@ -19,5 +19,7 @@ let TIMESTAMP = "timeStamp"
 let USERNAME = "userName"
 
 let comments_ref = "comments"
-
 let COMMENTTXT = "commentTxt"
+
+let users_ref = "Users"
+let DATECREATED = "dateCreated"

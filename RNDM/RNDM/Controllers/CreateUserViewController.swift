@@ -17,11 +17,15 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var createBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
+    @IBOutlet weak var errorMessageLbl: UILabel!
+    @IBOutlet weak var errorMessageView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         createBtn.layer.cornerRadius = 10.0
         cancelBtn.layer.cornerRadius = 10.0
+        errorMessageView.layer.cornerRadius = 10.0
     }
     
     @IBAction func createBtnWasPressed(_ sender: Any) {
@@ -47,13 +51,15 @@ class CreateUserViewController: UIViewController {
                             })
                             
                             guard let userId = result?.user.uid else { return }
-                            Firestore.firestore().collection("Users")
+                            Firestore.firestore().collection(users_ref)
                                 .document(userId).setData([
-                                    "userName": username,
-                                    "dateCreated": FieldValue.serverTimestamp()
+                                    USERNAME: username,
+                                    "emailAddress": email,
+                                    DATECREATED: FieldValue.serverTimestamp()
                                 ]) { (error) in
                                     if let error = error {
                                         debugPrint("ERROR CREATING FIRESTORE DATA: \(error.localizedDescription)")
+                                        self.errorMessageView.showToastMessage(label: self.errorMessageLbl, message: "\(error.localizedDescription)")
                                     } else {
                                         self.emailAddressTxtField.text = ""
                                         self.passwordTxtField.text = ""

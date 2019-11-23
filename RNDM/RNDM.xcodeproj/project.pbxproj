@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1FD9D3C38420C28BA2A3F6C1 /* Pods_RNDM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A09003947FF613886C05EE /* Pods_RNDM.framework */; };
+		A75E68292388C263000DFFDF /* UIViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75E68282388C263000DFFDF /* UIViews.swift */; };
 		A7602D8F2361563C0078A7D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7602D8E2361563C0078A7D9 /* AppDelegate.swift */; };
 		A7602D912361563C0078A7D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7602D902361563C0078A7D9 /* SceneDelegate.swift */; };
 		A7602D932361563C0078A7D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7602D922361563C0078A7D9 /* MainViewController.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		2FD84ECC3F255E1DB3113A81 /* Pods-RNDM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDM.release.xcconfig"; path = "Target Support Files/Pods-RNDM/Pods-RNDM.release.xcconfig"; sourceTree = "<group>"; };
 		43A09003947FF613886C05EE /* Pods_RNDM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNDM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A75E68282388C263000DFFDF /* UIViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViews.swift; sourceTree = "<group>"; };
 		A7602D8B2361563C0078A7D9 /* RNDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7602D8E2361563C0078A7D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7602D902361563C0078A7D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A75E68272388C253000DFFDF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A75E68282388C263000DFFDF /* UIViews.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A7602D822361563C0078A7D9 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		A7602D8D2361563C0078A7D9 /* RNDM */ = {
 			isa = PBXGroup;
 			children = (
+				A75E68272388C253000DFFDF /* Extensions */,
 				A79900222370132300ECC99F /* Utilities */,
 				A7602DA923618CA30078A7D9 /* Constants */,
 				A7602DA623616E4A0078A7D9 /* Models */,
@@ -298,6 +309,7 @@
 				A76724FE2368136C00483918 /* CommentsCell.swift in Sources */,
 				A7672500236815B300483918 /* Comment.swift in Sources */,
 				A7602D912361563C0078A7D9 /* SceneDelegate.swift in Sources */,
+				A75E68292388C263000DFFDF /* UIViews.swift in Sources */,
 				A7806C032364914000E49B9F /* Thought.swift in Sources */,
 				A76724FC2367E38F00483918 /* CommentsViewController.swift in Sources */,
 				A7806C012364908B00E49B9F /* ThoughtListCell.swift in Sources */,

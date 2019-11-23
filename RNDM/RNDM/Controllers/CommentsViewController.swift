@@ -62,7 +62,48 @@ class CommentsViewController: UIViewController, CommentDelegate {
     }
     
     func commentOptionsTapped(comment: Comment) {
-        print(comment.userName!)
+        let alert = UIAlertController(title: "Edit Comment", message: "You can delete or edit", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete Comment", style: .default) { (action) in
+            //delete comment
+            self.firestore.runTransaction({ (transaction, errorPointer) -> Any? in
+                
+                let thoughtDocument: DocumentSnapshot
+                
+                do {
+                    try thoughtDocument = transaction.getDocument(self.firestore.collection(thought_ref)
+                        .document(self.thought.documentId))
+                } catch let error as NSError {
+                    debugPrint("Fetch error: \(error.localizedDescription)")
+                    return nil
+                }
+                
+                guard let oldNumComments = thoughtDocument.data()?[NUMOFCOMMENTS] as? Int else { return nil }
+                
+                transaction.updateData([NUMOFCOMMENTS: oldNumComments - 1], forDocument: self.thoughtRef)
+                
+            let commentRef = self.firestore.collection(thought_ref).document(self.thought.documentId).collection(comments_ref).document(comment.documentId)
+                
+                transaction.deleteDocument(commentRef)
+                
+                return nil
+            }) { (object, error) in
+                if let error = error {
+                    debugPrint("Transaction error: \(error.localizedDescription)")
+                } else {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            }
+            
+        }
+        let editAction = UIAlertAction(title: "Edit comment", style: .default) { (action) in
+            //edit comment
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(editAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 
     @IBAction func addCommentBtnWasPressed(_ sender: Any) {
@@ -99,9 +140,9 @@ class CommentsViewController: UIViewController, CommentDelegate {
                 debugPrint("Transaction error: \(error.localizedDescription)")
             } else {
                 self.addCommentTxtField.text = ""
+                self.addCommentTxtField.resignFirstResponder()
             }
         }
-        self.addCommentTxtField.resignFirstResponder()
     }
     
 }

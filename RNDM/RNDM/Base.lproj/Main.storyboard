@@ -69,6 +69,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHm-MC-FxP">
+                                <rect key="frame" x="30" y="802" width="354" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ERROR MESSAGE" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtB-Mx-3HG">
+                                        <rect key="frame" x="8" y="8" width="338" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="cpt-Oc-3MO"/>
+                                            <constraint firstAttribute="width" constant="338" id="l5F-XU-aoI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="LtB-Mx-3HG" firstAttribute="top" secondItem="DHm-MC-FxP" secondAttribute="top" constant="8" id="7Bb-Ja-4R7"/>
+                                    <constraint firstAttribute="width" constant="354" id="A2m-J3-XGN"/>
+                                    <constraint firstAttribute="trailing" secondItem="LtB-Mx-3HG" secondAttribute="trailing" constant="8" id="BMc-Ns-o0h"/>
+                                    <constraint firstAttribute="bottom" secondItem="LtB-Mx-3HG" secondAttribute="bottom" constant="8" id="GXb-PD-MOx"/>
+                                    <constraint firstItem="LtB-Mx-3HG" firstAttribute="leading" secondItem="DHm-MC-FxP" secondAttribute="leading" constant="8" id="YUc-v2-TjN"/>
+                                    <constraint firstAttribute="height" constant="60" id="uja-Zf-8kX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -79,12 +103,15 @@
                             <constraint firstItem="0YX-OI-Lz2" firstAttribute="top" secondItem="zJM-Jz-IvP" secondAttribute="bottom" constant="80" id="KUd-Pq-Lno"/>
                             <constraint firstItem="jgP-29-vCY" firstAttribute="top" secondItem="0YX-OI-Lz2" secondAttribute="bottom" constant="20" id="QOP-Av-upk"/>
                             <constraint firstItem="zJM-Jz-IvP" firstAttribute="leading" secondItem="2Xl-ya-CLc" secondAttribute="leading" constant="139" id="SoI-Ul-8ah"/>
+                            <constraint firstItem="DHm-MC-FxP" firstAttribute="leading" secondItem="2Xl-ya-CLc" secondAttribute="leading" constant="30" id="WpR-qY-S2X"/>
                             <constraint firstItem="ZrB-DY-pxn" firstAttribute="centerX" secondItem="1og-qA-ele" secondAttribute="centerX" id="WyI-PZ-927"/>
                             <constraint firstItem="qOf-qC-iV3" firstAttribute="top" secondItem="ZrB-DY-pxn" secondAttribute="bottom" constant="15" id="Zja-BU-Xl9"/>
                             <constraint firstItem="ZrB-DY-pxn" firstAttribute="leading" secondItem="2Xl-ya-CLc" secondAttribute="leading" constant="30" id="aDP-dE-Klb"/>
                             <constraint firstItem="2Xl-ya-CLc" firstAttribute="trailing" secondItem="ZrB-DY-pxn" secondAttribute="trailing" constant="30" id="bTj-rY-Y6W"/>
+                            <constraint firstItem="2Xl-ya-CLc" firstAttribute="trailing" secondItem="DHm-MC-FxP" secondAttribute="trailing" constant="30" id="hYl-Js-9L5"/>
                             <constraint firstItem="qOf-qC-iV3" firstAttribute="leading" secondItem="2Xl-ya-CLc" secondAttribute="leading" constant="30" id="ngJ-e9-AGL"/>
                             <constraint firstItem="2Xl-ya-CLc" firstAttribute="trailing" secondItem="jgP-29-vCY" secondAttribute="trailing" constant="139" id="od1-CK-oqX"/>
+                            <constraint firstItem="DHm-MC-FxP" firstAttribute="bottom" secondItem="2Xl-ya-CLc" secondAttribute="bottom" id="qcF-5c-7B8"/>
                             <constraint firstItem="2Xl-ya-CLc" firstAttribute="trailing" secondItem="zJM-Jz-IvP" secondAttribute="trailing" constant="139" id="sRo-D7-w0f"/>
                             <constraint firstItem="jgP-29-vCY" firstAttribute="leading" secondItem="2Xl-ya-CLc" secondAttribute="leading" constant="139" id="ulZ-tQ-btz"/>
                             <constraint firstItem="ZrB-DY-pxn" firstAttribute="top" secondItem="2Xl-ya-CLc" secondAttribute="top" constant="80" id="yaO-BW-tBY"/>
@@ -94,6 +121,8 @@
                     <connections>
                         <outlet property="createUserBtn" destination="jgP-29-vCY" id="p1M-ky-ZBT"/>
                         <outlet property="emailAdressTxtField" destination="ZrB-DY-pxn" id="Js4-Pu-KNm"/>
+                        <outlet property="errorMessageLbl" destination="LtB-Mx-3HG" id="ukg-Oc-sbA"/>
+                        <outlet property="errorMessageView" destination="DHm-MC-FxP" id="gd8-Q3-zWI"/>
                         <outlet property="loginBtn" destination="zJM-Jz-IvP" id="H6h-Q6-Xoq"/>
                         <outlet property="passwordTxtField" destination="qOf-qC-iV3" id="Z5v-vi-bdx"/>
                     </connections>
@@ -170,10 +199,35 @@
                                     <action selector="loginBtnWasPressed:" destination="EvF-Lj-HpF" eventType="touchUpInside" id="KGv-0J-hVL"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSR-b5-0dk">
+                                <rect key="frame" x="30" y="802" width="354" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ERROR MESSAGE" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhV-Ed-3Ii">
+                                        <rect key="frame" x="8" y="8" width="338" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="4iV-K6-sh1"/>
+                                            <constraint firstAttribute="width" constant="338" id="WTG-9u-NGC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="G9v-Jt-ALv"/>
+                                    <constraint firstAttribute="trailing" secondItem="jhV-Ed-3Ii" secondAttribute="trailing" constant="8" id="bJ0-m1-FrQ"/>
+                                    <constraint firstAttribute="width" constant="354" id="bvN-xv-SfC"/>
+                                    <constraint firstItem="jhV-Ed-3Ii" firstAttribute="top" secondItem="CSR-b5-0dk" secondAttribute="top" constant="8" id="cfb-60-yU5"/>
+                                    <constraint firstAttribute="bottom" secondItem="jhV-Ed-3Ii" secondAttribute="bottom" constant="8" id="nvk-79-aqs"/>
+                                    <constraint firstItem="jhV-Ed-3Ii" firstAttribute="leading" secondItem="CSR-b5-0dk" secondAttribute="leading" constant="8" id="reM-W5-Bvo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dDp-c7-eYg" firstAttribute="centerX" secondItem="Sh7-6M-Gem" secondAttribute="centerX" id="0ra-gM-O8y"/>
+                            <constraint firstItem="CSR-b5-0dk" firstAttribute="leading" secondItem="hs9-ax-yUt" secondAttribute="leading" constant="30" id="0sl-O4-KLP"/>
                             <constraint firstItem="EL3-bb-Bzg" firstAttribute="top" secondItem="FbW-pK-KeU" secondAttribute="bottom" constant="15" id="1Zf-gh-Pgl"/>
                             <constraint firstItem="EL3-bb-Bzg" firstAttribute="leading" secondItem="hs9-ax-yUt" secondAttribute="leading" constant="30" id="AgS-xK-wnU"/>
                             <constraint firstItem="hs9-ax-yUt" firstAttribute="trailing" secondItem="FbW-pK-KeU" secondAttribute="trailing" constant="30" id="CSL-zh-M10"/>
@@ -184,9 +238,11 @@
                             <constraint firstItem="bdy-aD-T9M" firstAttribute="leading" secondItem="hs9-ax-yUt" secondAttribute="leading" constant="139" id="Jh1-ze-o8X"/>
                             <constraint firstItem="hs9-ax-yUt" firstAttribute="trailing" secondItem="bdy-aD-T9M" secondAttribute="trailing" constant="139" id="MK8-bE-qvO"/>
                             <constraint firstItem="FbW-pK-KeU" firstAttribute="leading" secondItem="hs9-ax-yUt" secondAttribute="leading" constant="30" id="PTU-p0-jvV"/>
+                            <constraint firstItem="hs9-ax-yUt" firstAttribute="trailing" secondItem="CSR-b5-0dk" secondAttribute="trailing" constant="30" id="VrH-ey-x8v"/>
                             <constraint firstItem="nz5-ch-mlG" firstAttribute="leading" secondItem="hs9-ax-yUt" secondAttribute="leading" constant="139" id="Xng-iV-Ldz"/>
                             <constraint firstItem="hs9-ax-yUt" firstAttribute="trailing" secondItem="nz5-ch-mlG" secondAttribute="trailing" constant="139" id="al9-S4-LTi"/>
                             <constraint firstItem="bdy-aD-T9M" firstAttribute="top" secondItem="nz5-ch-mlG" secondAttribute="bottom" constant="10" id="bSt-f6-Yam"/>
+                            <constraint firstItem="CSR-b5-0dk" firstAttribute="bottom" secondItem="hs9-ax-yUt" secondAttribute="bottom" id="cUn-yy-bio"/>
                             <constraint firstItem="hs9-ax-yUt" firstAttribute="trailing" secondItem="EL3-bb-Bzg" secondAttribute="trailing" constant="30" id="h2F-Wx-Lhx"/>
                             <constraint firstItem="dDp-c7-eYg" firstAttribute="leading" secondItem="hs9-ax-yUt" secondAttribute="leading" constant="30" id="n71-bD-XqY"/>
                         </constraints>
@@ -196,13 +252,15 @@
                         <outlet property="cancelBtn" destination="bdy-aD-T9M" id="EAh-s1-Gko"/>
                         <outlet property="createBtn" destination="nz5-ch-mlG" id="wwL-EA-0nu"/>
                         <outlet property="emailAddressTxtField" destination="dDp-c7-eYg" id="eIE-Uf-GJH"/>
+                        <outlet property="errorMessageLbl" destination="jhV-Ed-3Ii" id="pdl-gm-H16"/>
+                        <outlet property="errorMessageView" destination="CSR-b5-0dk" id="Pxe-ze-KkD"/>
                         <outlet property="passwordTxtField" destination="FbW-pK-KeU" id="G2m-FY-HsK"/>
                         <outlet property="userNameTxtField" destination="EL3-bb-Bzg" id="RS8-Eo-94W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Trn-sV-Wfe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="-581"/>
+            <point key="canvasLocation" x="900.00000000000011" y="-581.25"/>
         </scene>
         <!--RNDM-->
         <scene sceneID="tne-QT-ifu">
