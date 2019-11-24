@@ -50,7 +50,6 @@ class AddThoughtViewController: UIViewController {
     }
     
     @IBAction func PostBtnWasPressed(_ sender: Any) {
-        print("PRESSED: \(self.selectedCategory)--- \(self.categorySegment.selectedSegmentIndex)")
         
         Firestore.firestore().collection("Thoughts").addDocument(data: [
             "category": self.selectedCategory,

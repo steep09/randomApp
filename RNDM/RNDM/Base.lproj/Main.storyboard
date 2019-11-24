@@ -289,7 +289,7 @@
                                     <action selector="categoryChanged:" destination="7Aa-uI-ZdR" eventType="valueChanged" id="vAg-ku-dKg"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6qr-X4-PdT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6qr-X4-PdT">
                                 <rect key="frame" x="0.0" y="157" width="414" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -433,7 +433,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0eo-of-UID">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0eo-of-UID">
                                 <rect key="frame" x="0.0" y="88" width="414" height="711"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -529,17 +529,17 @@
                         <outlet property="addCommentTxtField" destination="TI0-2Q-idU" id="qmw-qh-4hx"/>
                         <outlet property="keyboardView" destination="5MV-v7-CrR" id="E8k-Ex-ow4"/>
                         <outlet property="tableView" destination="0eo-of-UID" id="OP8-r0-kWH"/>
-                        <segue destination="fdw-RW-ejn" kind="show" id="zuK-SH-PUb"/>
+                        <segue destination="fdw-RW-ejn" kind="show" identifier="toEditComment" id="zuK-SH-PUb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLT-Tq-vvf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1669.5652173913045" y="450"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Comment View Controller-->
         <scene sceneID="hNV-nZ-Ndm">
             <objects>
-                <viewController id="fdw-RW-ejn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditCommentViewController" id="fdw-RW-ejn" customClass="EditCommentViewController" customModule="RNDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LIO-8G-xKK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -566,9 +566,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="DONE"/>
+                                <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="PostBtnWasPressed:" destination="7Aa-uI-ZdR" eventType="touchUpInside" id="0i5-CS-W3v"/>
+                                    <action selector="doneEditCommentBtnWasPressed:" destination="fdw-RW-ejn" eventType="touchUpInside" id="SMC-b6-rLo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -583,6 +584,10 @@
                         <viewLayoutGuide key="safeArea" id="TS6-ix-jZI"/>
                     </view>
                     <navigationItem key="navigationItem" id="XWT-Xd-AKH"/>
+                    <connections>
+                        <outlet property="doneEditCommentBtn" destination="HdR-Zr-nYr" id="zdQ-v0-y4W"/>
+                        <outlet property="editCommentTextView" destination="6gV-ih-V9V" id="XI4-2k-l7g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8V-Pg-Rcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -636,7 +641,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="POST"/>
+                                <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="PostBtnWasPressed:" destination="7Aa-uI-ZdR" eventType="touchUpInside" id="UAu-jW-Fcb"/>
                                 </connections>
