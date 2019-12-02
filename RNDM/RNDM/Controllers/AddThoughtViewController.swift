@@ -51,14 +51,15 @@ class AddThoughtViewController: UIViewController {
     
     @IBAction func PostBtnWasPressed(_ sender: Any) {
         
-        Firestore.firestore().collection("Thoughts").addDocument(data: [
+        Firestore.firestore().collection(thought_ref).addDocument(data: [
             "category": self.selectedCategory,
             "numOfComments": 0,
             "numOfLikes": 0,
             "thoughtTxt": self.ThoughtDescription.text!,
             "timeStamp": FieldValue.serverTimestamp(),
             "userName": Auth.auth().currentUser?.displayName ?? "Anonymous",
-            "userId": Auth.auth().currentUser?.uid ?? ""
+            "userId": Auth.auth().currentUser?.uid ?? "",
+            "likedBy": []
         ]) { (error) in
             if error != nil {
                 print("ERROR ADDING DOCUMENT!")
